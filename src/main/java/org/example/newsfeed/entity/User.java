@@ -82,7 +82,14 @@ public class User extends Timestamped{
     private LocalDateTime modifyDate;
 
     @OneToMany(mappedBy = "user")
-    private List<Post> newsfeeds = new ArrayList<>();
+    private List<Post> newsfeeds;
+
+    public User(String userId, String password, String email, String comment) {
+        this.userId = userId;
+        this.password = password;
+        this.email = email;
+        this.comment = comment;
+    }
 
     public void setStatus(UserStatusEnum status) {
         if (!status.getStatus().equals(this.status)) {

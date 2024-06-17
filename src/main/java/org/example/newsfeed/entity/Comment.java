@@ -12,9 +12,11 @@ import jakarta.persistence.ManyToOne;
 import lombok.Builder;
 import lombok.Getter;
 import lombok.NoArgsConstructor;
+import lombok.Setter;
 
 @Entity
 @Getter
+@Setter
 @NoArgsConstructor
 public class Comment extends BaseEntity {
     @Id
@@ -28,8 +30,10 @@ public class Comment extends BaseEntity {
     @JsonBackReference//
     private User user;
 
+    @Setter
     private String content;
 
+    @Setter
     @ManyToOne
     @JoinColumn(name = "post_id")
     private Post post; //N:1
@@ -42,11 +46,4 @@ public class Comment extends BaseEntity {
     }
 
 
-    public void setPost(Post post) {
-        this.post = post;
-    }
-
-    public void setContent(String content){
-        this.content = content;
-    }
 }
