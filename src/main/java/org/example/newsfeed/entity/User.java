@@ -39,6 +39,7 @@ import org.springframework.security.crypto.bcrypt.BCryptPasswordEncoder;
 @EntityListeners(AuditingEntityListener.class)
 @ToString
 @SuperBuilder
+@Setter
 @Table(name = "user")
 public class User extends Timestamped{
     @Id
